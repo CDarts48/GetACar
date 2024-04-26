@@ -1,24 +1,27 @@
-import React from 'react';
-import CarList from './CarList';
-import CarFilter from './CarFilter';
+import React, { useState, useEffect } from 'react';
+import CarList from '../components/CarList';
+import CarFilter from '../components/CarFilter';
+import Slideshow from '../components/Slideshow';
+import { fetchCars } from '../api/carAPI';
 
 function HomePage() {
-  // Replace this with your actual data
-  const cars = [
-    { make: 'Toyota', model: 'Camry', year: 2020, price: 24000 },
-    { make: 'Honda', model: 'Accord', year: 2021, price: 26000 },
-    // Add more cars as needed
-  ];
+  const [cars, setCars] = useState([]);
+  const [makeFilter, setMakeFilter] = useState('');
+  const [token, setToken] = useState('');
+
+  useEffect(() => {
+    fetchCars(makeFilter, setCars, setToken);
+  }, [makeFilter]);
 
   const handleFilter = (filterValue) => {
-    // Implement your filter logic here
+    setMakeFilter(filterValue);
   };
 
   return (
-    <div>
-      <h1>Welcome to GetACar</h1>
-      <CarFilter onFilter={handleFilter} />
-      <CarList cars={cars} />
+    <div id='header'>
+      <h1>Welcome to Get-A-Car</h1>
+      <CarFilter onFilter={handleFilter} cars={cars} />
+      {makeFilter ? <CarList cars={cars} /> : <Slideshow cars={cars} />}
     </div>
   );
 }

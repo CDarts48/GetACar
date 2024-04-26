@@ -3,7 +3,7 @@ import CarDetails from './CarDetails';
 
 function CarList({ cars }) {
   return (
-    <div>
+    <div className="car-grid">
       {cars.map((car, index) => (
         <CarDetails key={index} car={car} />
       ))}

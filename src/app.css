@@ -1,0 +1,70 @@
+
+  
+  .car-grid {
+    display: flex;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: minmax(200px, auto);
+    grid-auto-flow: row dense;
+    gap: 20px;
+    padding: 20px;
+    justify-content: space-around;
+    align-items: stretch; /* make grid items take up full height of row */
+    background-color: transparent; /* Set the background color to transparent */
+    margin: 0; /* Remove any margins */
+  }
+
+  
+  
+  .car-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent; /* Set the background color to transparent */
+    margin: 0; /* Remove any margins */
+  }
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-header {
+    background-color: #808080;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .dropdown-list {
+    position: absolute;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-item {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-item-Honda {
+    background-image: url('/public/images/Honda.png');
+  }
+  
+  .dropdown-item-Toyota {
+    background-image: url('/public/images/Toyota.png');
+  }
+  
+  .dropdown-item-Ford {
+    background-image: url('/public/images/Ford.png');
+  }
+  
+  .dropdown-item-Ferrari {
+    background-image: url('/public/images/Ferrari.png');
+  }
